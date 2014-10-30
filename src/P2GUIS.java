@@ -15,7 +15,7 @@ import javax.swing.JCheckBoxMenuItem;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
-
+//Hello Jeffrey!! Eres un mamin.
 public class P2GUIS extends JFrame {
 
 	private JPanel contentPane;
