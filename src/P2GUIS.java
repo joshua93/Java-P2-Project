@@ -16,6 +16,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
 //Hello Jeffrey!! Eres un mamin.
+//Tu eres el mamin JoSHUA
 public class P2GUIS extends JFrame {
 
 	private JPanel contentPane;
