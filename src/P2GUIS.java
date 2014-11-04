@@ -8,18 +8,26 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.GridLayout;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.JCheckBoxMenuItem;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 //Hello Jeffrey!! Eres un mamin.
 //Tu eres el mamin JoSHUA
 
 //Jeffrey Branch
+
 public class P2GUIS extends JFrame {
+	public static ButtonGroup colorGroup = new ButtonGroup();
 
 	private JPanel contentPane;
 
@@ -30,8 +38,67 @@ public class P2GUIS extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					P2GUIS frame = new P2GUIS();
-					frame.setVisible(true);
+					ActionListener playPress= new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							// TODO Auto-generated method stub
+
+						}
+
+					};
+					final P2GUIS frame = new P2GUIS();
+					final JFrame welcome= new JFrame("Welcome");
+					welcome.setBounds(200, 200, 450,325);
+
+//					JButton play= new JButton("Want to Play");
+					JLabel titleLbl = new JLabel("Title");
+					titleLbl.setIcon(new ImageIcon(getClass().getResource("chesslogo.png")));
+					titleLbl.setBounds(10, 11, 414, 60);
+					welcome.add(titleLbl);
+
+					JButton startBtn = new JButton("Start!");
+					startBtn.setBounds(151, 219, 94, 31);
+					welcome.add(startBtn);
+
+					JCheckBox chckbxWhite = new JCheckBox("White");
+					chckbxWhite.setBounds(10, 178, 97, 23);
+					chckbxWhite.setSelected(true);
+					welcome.add(chckbxWhite);
+
+					JCheckBox chckbxBlack = new JCheckBox("Black");
+					chckbxBlack.setBounds(109, 178, 97, 23);
+					welcome.add(chckbxBlack);
+					colorGroup.add(chckbxWhite);
+					colorGroup.add(chckbxBlack);
+
+					JLabel lblChooseOneColor = new JLabel("Choose one color: ");
+					lblChooseOneColor.setBackground(Color.WHITE);
+					lblChooseOneColor.setForeground(Color.YELLOW);
+					lblChooseOneColor.setBounds(10, 148, 105, 23);
+					welcome.add(lblChooseOneColor);
+
+					JLabel backgroundLbl = new JLabel("New label");
+					backgroundLbl.setIcon(new ImageIcon(getClass().getResource("chess cover.png")));
+					backgroundLbl.setBounds(0, 0, 434, 261);
+					welcome.add(backgroundLbl);
+					startBtn.addActionListener(new ActionListener() {
+
+						public void actionPerformed(ActionEvent e)
+						{
+							//Execute when button is pressed
+
+							frame.setVisible(true);
+							welcome.setVisible(false);
+//							player1Name = JOptionPane.showInputDialog("Player 1 enter your name");
+//							player2Name = JOptionPane.showInputDialog("Player 2 enter your name");
+						}
+					});      
+					//welcome.add(play);
+					welcome.setVisible(true);
+
+
+					//if()
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -227,9 +294,25 @@ public class P2GUIS extends JFrame {
 
 
 		JLabel tablero = new JLabel("");
-		tablero.setBounds(196, 55, 529, 510);
+		tablero.setBounds(196, 55, 500, 510);
 		tablero.setIcon(new ImageIcon(getClass().getResource("tablero.png")));
 		contentPane.add(tablero);
+		
+		JLabel player1Lbl = new JLabel("Player One");
+		player1Lbl.setBounds(47, 208, 107, 107);
+		contentPane.add(player1Lbl);
+		
+		JLabel player2Lbl = new JLabel("Player Two");
+		player2Lbl.setBounds(733, 208, 107, 107);
+		contentPane.add(player2Lbl);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(47, 521, 128, 26);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(733, 518, 128, 26);
+		contentPane.add(lblNewLabel_1);
 
 
 
